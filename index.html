@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031) -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Nana | 黄梦娜</title>
+    <!-- Make the page non scalable for mobile devices -->
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <!-- iOS meta -->
+    <meta name="apple-mobile-web-app-capable" content="no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, minimal-ui">
+    <!-- Favicon -->
+    <!-- Style that hides the website and shows the loader while every script, fonts and css is loading -->
+    <style type="text/css">
+        #loader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 1);
+            z-index: 9000
+        }
+        
+        #loader .logo-loader {
+            height: 61px;
+            width: 61px
+        }
+        
+        .logo {
+            display: inline-block;
+            background-image: url(images/logo.png)
+        }
+        
+        .menu-btn {
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            z-index: 8500;
+            float: right;
+            overflow: hidden;
+            padding: 18px 14px
+        }
+        
+        #loader .menu-btn,
+        #main-menu .menu-btn {
+            border: 5px solid transparent
+        }
+        
+        .menu-btn .line {
+            background-color: #000;
+            margin-bottom: 1px;
+            height: 3px;
+            width: 20px;
+            opacity: 1;
+            top: 0
+        }
+        
+        @-webkit-keyframes rotate {
+            from {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg)
+            }
+            to {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg)
+            }
+        }
+        
+        @-moz-keyframes rotate {
+            from {
+                -moz-transform: rotate(0deg)
+            }
+            to {
+                -moz-transform: rotate(360deg)
+            }
+        }
+        
+        @-o-keyframes rotate {
+            from {
+                -o-transform: rotate(0deg)
+            }
+            to {
+                -o-transform: rotate(360deg)
+            }
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg)
+            }
+            to {
+                transform: rotate(360deg)
+            }
+        }
+        
+        .ui-animate-rotate {
+            -webkit-animation: rotate .7s linear infinite;
+            -moz-animation: rotate .7s linear infinite;
+            -ms-animation: rotate .7s linear infinite;
+            -o-animation: rotate .7s linear infinite;
+            animation: rotate .7s linear infinite
+        }
+        
+        .menu-btn.state-close .line:nth-child(1) {
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+            top: 4px
+        }
+        
+        .menu-btn.state-close .line:nth-child(2) {
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            top: 0
+        }
+        
+        .menu-btn.state-close .line:nth-child(3) {
+            opacity: 0;
+            top: 10px
+        }
+        
+        #loader .menu-btn,
+        #main-menu .menu-btn {
+            width: 44px;
+            height: 44px
+        }
+        
+        .loader-wrapper {
+            position: absolute
+        }
+        
+        .ns-effect-loadingcircle {
+            position: absolute;
+            z-index: 100
+        }
+        
+        .ns-effect-loadingcircle .ns-close::after,
+        .ns-effect-loadingcircle .ns-close::before {
+            background: #ddd
+        }
+        
+        .ns-effect-loadingcircle .ns-close:hover::after,
+        .ns-effect-loadingcircle .ns-close:hover::before {
+            background: #72BF7B
+        }
+        
+        .ns-effect-loadingcircle .ns-box-inner {
+            color: #72BF7B
+        }
+        
+        .shape-progress svg {
+            width: 61px;
+            height: 61px;
+            left: 0;
+            top: 0;
+            z-index: 100
+        }
+        
+        .shape-progress path {
+            fill: none;
+            stroke: #000;
+            stroke-width: 4;
+            stroke-dasharray: 204;
+            stroke-dashoffset: 204;
+            opacity: 1
+        }
+        
+        .ns-effect-loadingcircle.ns-show+svg path {
+            -webkit-animation: animDash 1.7s forwards;
+            animation: animDash 1.7s forwards
+        }
+        
+        @-webkit-keyframes animDash {
+            0% {
+                opacity: 1;
+                stroke-dashoffset: 204
+            }
+            50% {
+                opacity: 1;
+                stroke-dashoffset: 160
+            }
+            100% {
+                opacity: 1;
+                stroke-dashoffset: 100
+            }
+        }
+        
+        @keyframes animDash {
+            0% {
+                opacity: 1;
+                stroke-dashoffset: 204
+            }
+            50% {
+                opacity: 1;
+                stroke-dashoffset: 160
+            }
+            100% {
+                opacity: 1;
+                stroke-dashoffset: 100
+            }
+        }
+        
+        .icon-container,
+        .logo,
+        .menu-btn {
+            width: 42px;
+            height: 42px;
+            background-size: 42px 42px
+        }
+        
+        #loader-shape {
+            width: 45px;
+            height: 45px
+        }
+        
+        .tmp-col {
+            margin-left: 0;
+            padding-left: 10px
+        }
+        
+        .tmp-grid {
+            padding: 0 10px;
+            width: 100%;
+            margin: 0 auto;
+            max-width: 1320px
+        }
+        
+        @media screen and (min-width:880px) {
+            #main-menu .menu-btn,
+            .icon-container,
+            .logo,
+            .menu-btn {
+                width: 57px;
+                height: 57px;
+                background-size: 57px 57px
+            }
+            #loader-shape {
+                width: 61px;
+                height: 61px
+            }
+            .tmp-col {
+                margin-left: 6.25%;
+                padding-left: 10px
+            }
+            .tmp-grid {
+                padding: 0 20px;
+                width: 100%;
+                margin: 0 auto;
+                max-width: 1320px
+            }
+        }
+    </style>
+
+    <!-- Mobile First CSS (thanks @brad_frost) -->
+    <link id="style-default" rel="stylesheet" type="text/css" href="./css/style.css" media="screen, handheld">
+    <link id="style-enhanced" rel="stylesheet" type="text/css" href="./css/enhanced.css" media="screen and (min-width: 40.5em)">
+</head>
+<!--view-landing view-landing-opening view-landing-opened-->
+<!--view-about view-about-opening view-about-opened-->
+
+<!--<body spellcheck="false" class="is-webkit-true view-landing view-landing-opening view-landing-opened">-->
+
+<body spellcheck="false" class="is-webkit-true">
+
+    <nav id="main-menu">
+        <a id="menu-btn-alt" class="menu-btn ui-animate-350  state-close" href="#/">
+            <div class="line ui-animate-250"></div>
+            <div class="line ui-animate-250"></div>
+            <div class="line ui-animate-250"></div>
+        </a>
+        <div class="menu-list">
+            <ul class="menu-items">
+                <li><a data-url="/home" href="#/home" class="menu-item">Home</a></li>
+                <li><a data-url="/work" href="#/work" class="menu-item">Work</a></li>
+                <li><a data-url="/about" href="#/about" class="menu-item">About</a></li>
+                <li><a data-url="/contact" href="#/contact" class="menu-item">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Top of the page with the logo and navigation button -->
+
+    <nav id="top" class="top ui-animate-350 animated">
+        <div class="grid">
+            <div class="pre-1 col-14">
+                <!-- BH Logo -->
+                <a id="logo" class="logo ui-animate-350 " href="#/" data-colorbellow=""></a>
+                <!-- 'Burger' Icon to call the Navigation -->
+                <a id="menu-btn" class="menu-btn ui-animate-350 state-wakeup" href="#" data-colorbellow="">
+                    <div class="line ui-animate-250"></div>
+                    <div class="line ui-animate-250"></div>
+                    <div class="line ui-animate-250"></div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="ui-animate-main">
+        <div>
+            <header class="hero">
+                <div class="grid hero-content-container">
+                    <div class="col-14 pre-1">
+                        <div class="hero-content">
+                            <!--<h1 class="title animated500 ui-animate-reveal-frombottom" >Foundr Magazine Transformed</h1> -->
+                            <!--<h2 class="subtitle animated500 ui-animate-reveal-frombottom" >The re-branding of Foundr Mag's digital face</h2> -->
+                            <!--<div class="action-container animated500 ui-animate-reveal-frombottom" > 
+                                <div class="action-background ui-animate-300-cubic ui-animate-3d-left" style="width: 419px; height: 48px;"></div>
+                                <a class="tz action" href="#/work/foundr-mag">Read our latest case study</a> 
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image default ui-animate-allbutbackpos" style="background-image: url(&quot;./images/nana.jpg&quot;); background-position-y: 0px;"></div>
+                <div class="hero-image blur ui-animate-allbutbackpos" style="background-position-y: 0px;"></div>
+            </header>
+        </div>
+        <div class="view-about view-about-opening view-about-opened">
+            <div class="grid">
+                <div class="col-14 pre-1">
+                    <header>
+                        <h1 class="first-line">About</h1>
+                    </header>
+                </div>
+            </div>
+            <div class="about-container ui-animate-350" data-onlogooverlap="">
+                <div class="grid">
+                    <div class="col-16">
+                        <div class="about-text">
+                            <h1>We are CREATORS FOR WEB and MOBILE platforms and products. WE shape AND redefine EXPERIENCES AND VALUE FOR OUR clients to their CUSTOMERS.</h1>
+                            <p>We set out in 2008 seeking fulfillment in our work and personal lives: to make a positive impact, explore our curiosities, work with great people, and have the freedom to influence the digital future. Each day, these commitments
+                                drive us to create more enjoyable and meaningful experiences.</p>
+                            <p><strong>Working with us</strong>. If you needed your website by yesterday, we’re not the best match for you. You’re not investing in the present, you’re investing in your future [more on <a href="#show-modal-moneytalk">time and budgets</a>,
+                                and so are we (both ours and yours). Imagining, solving, and delivering solutions take time. In that time, your team and ours works together as the same team. That team also includes your clients. We’re like one big happy
+                                family. We’ll argue and say “no”; we’ll laugh and send you annoying emails; we might even share a drink together. It’s all for the greater good. We’ll be straighforward and communicative. Expect to learn something new.
+                                We love to be challenged and we’ll certainly challenge you. And by doing so, we’ll all learn from each other. At the end of the day, when it’s all out on the table, we love what we do and have fun while doing it. Let’s
+                                innovate on our passions together.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="services ui-animate-350">
+                <div class="grid body-title-container">
+                    <div class="col-14 body-text pre-1 body-title">
+                        <h1>特长</h1>
+                    </div>
+                    <div class="col-14 pre-1 services">
+                        <div class="ui-line"></div>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="col-7 pre-1 service">
+                        <div class="icon-wrapper">
+                            <i class="icon icon-webmobile"></i>
+                            <i class="icon-bg"></i>
+                        </div>
+                        <h1>Web &amp; Mobile</h1>
+                        <ul>
+                            <li>Web and mobile design</li>
+                            <li>Art Direction</li>
+                            <li>Responsive design</li>
+                            <li>E-Commerce</li>
+                            <li>Front-end &amp;backend development</li>
+                            <li>Content Management Systems</li>
+                            <li>Brand Voice</li>
+                            <li>Strategy + Story Telling</li>
+                        </ul>
+                    </div>
+                    <div class="col-7 service">
+                        <div class="icon-wrapper">
+                            <i class="icon icon-interactiondesign"></i>
+                            <i class="icon-bg"></i>
+                        </div>
+                        <h1>Interaction Design</h1>
+                        <ul>
+                            <li>Product design</li>
+                            <li>User Experience design</li>
+                            <li>Information Architecture</li>
+                            <li>Interface design (Web app and iOS)</li>
+                            <li>Analytics design</li>
+                            <li>Dashboard design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer class="ui-animate-350" style="display: none">
+        <!-- The footer footer :) -->
+        <div class="fold ui-animate-350">
+            <div class="grid">
+                <div class="col-16 contact-n-social">
+                    <div class="logo"></div>
+                </div>
+                <div class="col-16">
+                    <span>
+                    Dico zhang Design, Doing our part with great love
+                </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="darkroom" class="darkroom"></div>
+    <div id="lightroom" class="lightroom" style="opacity: 0; display: none;"></div>
+
+    <!-- Templates v3 -->
+
+    <script id="template-landing" type="text/template">
+        <header class="hero">
+            <div class="grid hero-content-container">
+                <div class="col-14 pre-1">
+                    <div class="hero-content">
+                        <h1 class="title"></h1>
+                        <h2 class="subtitle"></h2>
+                        <div class="action-container">
+                            <div class="action-background ui-animate-300-cubic ui-animate-3d-left"></div> <a class="tz action" href="#">Read our latest case study</a>
+                            <!-- <div class="triangle-shape"></div> --></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image default"></div>
+            <div class="hero-image blur"></div>
+        </header>
+    </script>
+
+    <script id="template-work" type="text/template">
+        <div class="grid">
+            <div class="col-14 pre-1">
+                <header class="ui-animate-250">
+                    <h1 class="first-line">Experience</h1>
+                    <h1 class="second-line">the <i class="icon-heart"></i>.</h1>
+                </header>
+            </div>
+        </div>
+        <div class="work-list ui-animate-350">
+            <div class="grid">
+                <div class="col-16">
+                    <ul class="list ui-animate-350"> </ul>
+                </div>
+            </div>
+        </div>
+        <div class="subscribe">
+            <div class="grid">
+                <div class="col-14 pre-1">
+                    <a class="ui-ico ico-newsletter" href="#/" data-id="newsletter" data-action="show-modal"></a><br /> <a class="newsletter-cta" href="#/" data-id="newsletter" data-action="show-modal">Subscribe to our Monthly Newsletter</a> </div>
+            </div>
+        </div>
+        <div class="can-we-help">
+            <div class="grid">
+                <div class="col-14 pre-1">
+                    <h1><a href="#/contact">Tell us</a> how we can help</h1>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <!-- Work Item -->
+
+    <script id="template-work-item" type="text/template">
+        <a class="content-link ui-animate-250" href="#{{link}}"> </a>
+        <div class="content ui-animate-250">
+            <a href="#{{link}}">
+                <h1>{{title}}</h1>
+                <p>{{subtitle}}</p>
+            </a>
+        </div>
+        <a href="#{{link}}" class="hero default ui-animate-250">
+            <div class="hero--background ui-animate-250"></div>
+        </a>
+        </div>
+    </script>
+
+    <!-- Blog -->
+
+    <script id="template-blog" type="text/template">
+        <header data-onlogooverlap>
+            <div class="grid">
+                <article class="col-12 pre-2 latest-post">
+                    <p class="latest">Latest Blog Post</p>
+                    <h1 class="title">
+                        <a href="#"></a>
+                    </h1>
+                </article>
+            </div>
+        </header>
+        <div>
+            <div class="grid triangle-top-container">
+                <div class="col-14 pre-1">
+                    <div class="triangle-shape"></div>
+                    <div class="triangle-body"></div>
+                </div>
+            </div>
+        </div>
+        <div class="posts-container" data-onlogooverlap>
+            <div class="grid body-title-container ">
+                <div class="col-14 body-text pre-1 body-title">
+                    <h1>Archives</h1>
+                </div>
+                <div class="posts post-list ">
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="subscribes">
+            <div class="grid">
+                <div class="col-5 pre-2 subscribe">
+                    <a class="ui-ico ico-newsletter" data-action="show-modal" data-id="newsletter" href="#/"></a><br /> <a class="action-newsletter" data-action="show-modal" data-id="newsletter" href="#/">Subscribe to our Monthly Newsletter</a> </div>
+                <div class="col-5 pre-2 subscribe">
+                    <a target="_blank" href="./feed.xml" class="ui-ico ico-rss"></a><br /> <a class="action-rss" target="_blank" href="./feed.xml">Subscribe to our Blog’s RSS Feed</p> </div> </div> </div> 
+</script>
+    
+    <!-- About -->
+    
+<script id="template-about" type="text/template">
+    <div class="grid"> <div class="col-14 pre-1"> <header> <h1 class="first-line"></h1> </header> </div> </div> <div class="about-container ui-animate-350" data-onlogooverlap> <div class="grid"> <div class="col-16"> <div class="about-text"></div> <div class="about-cta"> <div class="ui-btn"><a href="#/blog/setting-expectations-for-our-clients">More on 'what to expect' on our blog</a>
+                    <div class="background ui-animate-150"><a href="#/blog/setting-expectations-for-our-clients">More on 'what to expect' on our blog</a></div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="services ui-animate-350">
+            <div class="grid triangle-top-container">
+                <div class="col-14 pre-1">
+                    <div class="triangle-shape"></div>
+                    <div class="triangle-body"></div>
+                </div>
+            </div>
+            <div class="grid body-title-container">
+                <div class="col-14 body-text pre-1 body-title">
+                    <h1>Services we provide</h1>
+                </div>
+                <div class="col-14 pre-1 services">
+                    <div class="ui-line"></div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="col-7 pre-1 service">
+                    <div class="icon-wrapper"> <i class="icon icon-webmobile"></i> <i class="icon-bg"></i> </div>
+                    <h1>Web &amp; Mobile
+                    </h1>
+                    <ul>
+                        <li>Web and mobile design</li>
+                        <li>Art Direction</li>
+                        <li>Responsive design</li>
+                        <li>E-Commerce</li>
+                        <li>Front-end &amp; backend development</li>
+                        <li>Content Management Systems</li>
+                        <li>Brand Voice</li>
+                        <li>Strategy + Story Telling</li>
+                    </ul>
+                </div>
+                <div class="col-7 service">
+                    <div class="icon-wrapper"> <i class="icon icon-interactiondesign"></i> <i class="icon-bg"></i> </div>
+                    <h1>Interaction Design</h1>
+                    <ul>
+                        <li>Product design</li>
+                        <li>User Experience design</li>
+                        <li>Information Architecture</li>
+                        <li>Interface design (Web app and iOS)</li>
+                        <li>Analytics design</li>
+                        <li>Dashboard design</li>
+                    </ul>
+                </div>
+                <div class="col-14 pre-1 services">
+                    <div class="ui-line"></div>
+                </div>
+            </div>
+            <div class="grid news">
+                <div class="col-14 pre-1">
+                    <div id="recognition" class="news-title">
+                        <h1>News and Recognition</h1>
+                        <p>Notable online recognition, features, interviews, and podcasts.</p>
+                    </div>
+                </div>
+                <div class="news-list"> </div>
+            </div>
+            <div class="grid news-more">
+                <div class="col-6 pre-5 btn-container">
+                    <div class="ui-btn"> <a class="load-more-recognition" href="#">Load More</a>
+                        <div class="background ui-animate-150"><a class="load-more-recognition" href="#">Load More</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="in-print" data-onlogooverlap>
+                <div class="grid">
+                    <div class="col-4 pre-1">
+                        <div class="in-print-title">
+                            <h1>In Print</h1>
+                            <p>We've also been featured the following printed publications </p>
+                            <div class="newsletter-icon-container">
+                                <a href="#/" data-id="newsletter" data-action="show-modal" class="ui-ico ico-newsletter"></a>
+                                <a class="cta newsletter-cta" href="#/" data-id="newsletter" data-action="show-modal">Be the first to learn about our latest features</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-9 pre-1 print-list">
+                        <div class="stand">
+                            <div class="stand-bottom"></div>
+                            <a href="http://www.creativebloq.com/net-magazine" target="_blank" class="magazine ui-animate-150">
+                                <img src="images/mags/netmag.jpg" alt="magazine" />
+                                <div class="magazine-back"></div>
+                                <div class="ui-btn view ui-animate-150">View</div>
+                            </a>
+                        </div>
+                        <div class="stand">
+                            <div class="stand-bottom"></div>
+                            <a href="http://www.howdesign.com" target="_blank" class="magazine ui-animate-150">
+                                <img src="images/mags/howmag.jpg" alt="magazine" />
+                                <div class="magazine-back"></div>
+                                <div class="ui-btn view ui-animate-150">View</div>
+                            </a>
+                        </div>
+                        <div class="stand">
+                            <div class="stand-bottom"></div>
+                            <a href="http://thewebdesignersideabook.com/volume-2/" target="_blank" class="magazine ui-animate-150">
+                                <img src="images/mags/wd-book.jpg" alt="magazine" />
+                                <div class="magazine-back"></div>
+                                <div class="ui-btn view ui-animate-150">View</div>
+                            </a>
+                        </div>
+                        <div class="stand">
+                            <div class="stand-bottom"></div>
+                            <a href="http://www.creativebloq.com/computer-arts-magazine" target="_blank" class="magazine ui-animate-150">
+                                <img src="images/mags/cartsmag.jpg" alt="magazine" />
+                                <div class="magazine-back"></div>
+                                <div class="ui-btn view ui-animate-150">View</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="can-we-help">
+                <div class="grid">
+                    <div class="col-14 pre-1">
+                        <h1><a href="#/contact">Tell us</a> how we can help</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <!-- Contact -->
+
+    <script id="template-contact" type="text/template">
+        <div class="grid">
+            <div class="col-14 pre-1">
+                <header class="ui-animate-250">
+                    <h1 class="first-line"></h1>
+                </header>
+            </div>
+        </div>
+
+        <div class="contacts ui-animate-350">
+            <div class="grid">
+                <div class="col-6 pre-2 contacts-col" id="email-container">
+                    <h2>Hellos and Questions.</h2>
+
+                    <div class="ui-btn">
+                        <a href="mailto:hello@brianhoffdesign.com">hello@brianhoffdesign.com</a>
+
+                        <div class="background ui-animate-150">
+                            <a href="mailto:hello@brianhoffdesign.com">hello@brianhoffdesign.com</a>
+                        </div>
+                    </div>
+
+                    <div class="icon-list">
+                        <a class="icon-container ss-twitter" target="_blank" href="http://twitter.com/behoff"></a>
+                        <a class="icon-container ss-linkedin" target="_blank" href="https://www.linkedin.com/in/brianwhoff"></a>
+                        <a class="icon-container ss-mail" target="_blank" href="mailto:hello@brianhoffdesign.com"></a>
+                    </div>
+                </div>
+
+                <div class="col-6 contacts-col" id="inquiry-container">
+                    <h2>New Business Inquiries.</h2>
+
+                    <div class="ui-btn">
+                        <a href="http://inquiry.brianhoffdesign.com" target="_blank">New Business Worksheet</a>
+
+                        <div class="background ui-animate-150">
+                            <a href="http://inquiry.brianhoffdesign.com" target="_blank">New Business Worksheet</a>
+                        </div>
+                    </div>
+
+                    <div class="more">
+                        <a class="commonquestions" href="#/"><i class=
+                    "icon-question"></i> Commonly Asked Questions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="caq ui-animate-350">
+            <div class="grid triangle-top-container">
+                <div class="col-14 pre-1">
+                    <div class="triangle-shape"></div>
+
+                    <div class="triangle-body"></div>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="caq-container body-text col-14 pre-1">
+                    <div class="bodystate-wakeup-title">
+                        <h1 class="caq-title">Commonly asked questions</h1>
+                    </div>
+
+                    <ul class="questions-list">
+                        <li>
+                            <h1>What's your availability like?</h1>
+                            <p class="text-availability">{{text-availability}}</p>
+                        </li>
+
+                        <li>
+                            <h1>What's your process like?</h1>
+                            <p class="text-process">{{text-process}}</p>
+                        </li>
+
+                        <li>
+                            <h1>What's your rates?</h1>
+                            <p class="text-rates">{{text-rates}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script>
+        var addClass = function(dom, klass) {
+            var k = dom.className;
+            dom.className = k + ' ' + klass
+        }
+        var removeClass = function(dom, klass) {
+            var k = dom.className;
+            var reg = new RegExp(klass, 'ig')
+            dom.className = k.replace(reg, '');
+        }
+        var hasClass = function(dom, klass) {
+            return -1 != dom.className.indexOf(klass);
+        }
+        window.onload = function() {
+            var $menutog = document.querySelector("#menu-btn");
+            var $menuBtnAlt = document.querySelector("#menu-btn-alt");
+            var $mainmenu = document.querySelector("#main-menu");
+            var $top = document.querySelector("#top");
+
+            var openMenu = function() {
+                $mainmenu.style.display = 'block';
+                $mainmenu.className = 'state-show animated750 bounceInRight'
+                addClass($top, 'state-menuopen')
+                addClass($menutog, 'state-close')
+                    // addClass($menutog, 'state-wakeup')
+            }
+            var closeMenu = function() {
+                $mainmenu.className = 'animated750 bounceOutRight'
+                removeClass($top, 'state-menuopen')
+                removeClass($menutog, 'state-close')
+                removeClass($menutog, 'state-hover')
+                setTimeout(function() {
+                    $mainmenu.style.display = 'none';
+                }, 500);
+            }
+
+            $menutog.onclick = function() {
+                if (!hasClass($mainmenu, 'bounceInRight')) {
+                    openMenu();
+                } else {
+                    closeMenu();
+                }
+
+            }
+            $menuBtnAlt.onclick = closeMenu;
+            $menutog.onmouseenter = function() {
+                addClass($menutog, 'state-hover')
+            }
+            $menutog.onmouseleave = function() {
+                // menutog.add
+                removeClass($menutog, 'state-hover')
+            }
+        }
+    </script>
+</body>
+
+</html>
